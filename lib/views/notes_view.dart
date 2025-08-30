@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:music_notes_player_app_setup/widgets/notes_views_body.dart';
 
 class NotesView extends StatelessWidget {
-NotesView({super.key});
+  const NotesView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-        appBar: AppBar(
-          title: Text('Notes'),
-          actions: [IconButton(onPressed: () {}, icon: Icon(Icons.search))],
-        ),
-      );
+    return const Scaffold(
+      body: NotesViewBody()
+    );
   }
 }
+
+
