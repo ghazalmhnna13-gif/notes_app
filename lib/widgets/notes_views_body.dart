@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:music_notes_player_app_setup/widgets/custom_app_bar.dart';
 import 'package:music_notes_player_app_setup/widgets/custom_note_item.dart';
+import 'package:music_notes_player_app_setup/widgets/notes_list_view.dart';
 
 class NotesViewBody extends StatelessWidget {
   const NotesViewBody({
@@ -17,9 +18,11 @@ class NotesViewBody extends StatelessWidget {
             height: 20,
           ),
           CustomAppBar(),
-          NoteItem()
+          NotesListView()
         ],
       ),
     );
   }
 }
+
+
