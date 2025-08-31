@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:music_notes_player_app_setup/const/notes_const.dart';
 
 class CustomTextField extends StatelessWidget {
-  String? hintText;
-  Function(String)? onChanged;
-  bool? obscureText;
-  TextInputType? keyboardType;
-  double? height;
-  int? maxLines;
+final  String? hintText;
+final  Function(String)? onChanged;
+final  bool? obscureText;
+final  TextInputType? keyboardType;
+final  double? height;
+final  int? maxLines;
 
-  CustomTextField(
+  const CustomTextField(
       {Key? key,
       this.hintText,
       this.onChanged,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:music_notes_player_app_setup/const/notes_const.dart';
-import 'package:music_notes_player_app_setup/widgets/Custom_Text_Field.dart';
+import 'package:music_notes_player_app_setup/widgets/custom_Text_Field.dart';
 import 'package:music_notes_player_app_setup/widgets/Custom_botton.dart';
 
 class AddNoteBottomSheet extends StatelessWidget {
