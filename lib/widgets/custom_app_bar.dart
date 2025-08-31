@@ -2,22 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:music_notes_player_app_setup/widgets/custom_search_icon.dart';
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({
-    super.key,
-  });
+  final String text;
+  final IconData icon;
+  const CustomAppBar({super.key, required this.text,required this.icon});
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
+    return Padding(
       padding: EdgeInsets.only(bottom: 16),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            'Notes',
-            style: TextStyle(fontSize: 25),
+            text,
+            style: const TextStyle(fontSize: 25),
           ),
-          customSearchIcon()
+          customSearchIcon(icon: icon,)
         ],
       ),
     );
