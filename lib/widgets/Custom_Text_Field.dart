@@ -7,6 +7,7 @@ class CustomTextField extends StatelessWidget {
   bool? obscureText;
   TextInputType? keyboardType;
   double? height;
+  int? maxLines;
 
   CustomTextField(
       {Key? key,
@@ -14,7 +15,8 @@ class CustomTextField extends StatelessWidget {
       this.onChanged,
       this.obscureText = false,
       this.keyboardType = TextInputType.text,
-      this.height})
+      this.height,
+      this.maxLines = 1})
       : super(key: key);
 
   @override
@@ -24,9 +26,12 @@ class CustomTextField extends StatelessWidget {
         keyboardType: keyboardType,
         obscureText: obscureText!,
         onChanged: onChanged,
+        maxLines: maxLines,
         decoration: InputDecoration(
           hintText: hintText,
-          hintStyle: TextStyle(color: KPrimaryColor, height: height),
+          hintStyle: TextStyle(
+              color: KPrimaryColor,
+              height: height),
           enabledBorder: outLineInputBorderMethod(),
           focusedBorder: outLineInputBorderMethod(color: KPrimaryColor),
         ));
