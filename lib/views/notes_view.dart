@@ -12,7 +12,7 @@ class NotesView extends StatelessWidget {
       //
       floatingActionButton: FloatingActionButton(
           shape: const CircleBorder(),
-          backgroundColor: KPrimaryColor,
+          backgroundColor: kPrimaryColor,
           child: const Icon(
             Icons.add,
             color: Colors.black,

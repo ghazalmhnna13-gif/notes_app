@@ -30,7 +30,7 @@ class AddNoteBottomSheet extends StatelessWidget {
               ),
               CustomBotton(
                 text: 'Add',
-                buttonColor: KPrimaryColor,
+                buttonColor: kPrimaryColor,
                 textColor: Colors.black,
               ),
               const SizedBox(

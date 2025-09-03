@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:music_notes_player_app_setup/const/notes_const.dart';
 
 class CustomTextField extends StatelessWidget {
-final  String? hintText;
-final  Function(String)? onChanged;
-final  bool? obscureText;
-final  TextInputType? keyboardType;
-final  double? height;
-final  int? maxLines;
+  final String? hintText;
+  final Function(String)? onChanged;
+  final bool? obscureText;
+  final TextInputType? keyboardType;
+  final double? height;
+  final int? maxLines;
 
   const CustomTextField(
       {Key? key,
@@ -22,18 +22,16 @@ final  int? maxLines;
   @override
   Widget build(BuildContext context) {
     return TextField(
-        cursorColor: KPrimaryColor,
+        cursorColor: kPrimaryColor,
         keyboardType: keyboardType,
         obscureText: obscureText!,
         onChanged: onChanged,
         maxLines: maxLines,
         decoration: InputDecoration(
           hintText: hintText,
-          hintStyle: TextStyle(
-              color: KPrimaryColor,
-              height: height),
+          hintStyle: TextStyle(color: kPrimaryColor, height: height),
           enabledBorder: outLineInputBorderMethod(),
-          focusedBorder: outLineInputBorderMethod(color: KPrimaryColor),
+          focusedBorder: outLineInputBorderMethod(color: kPrimaryColor),
         ));
   }
 
