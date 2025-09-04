@@ -3,7 +3,7 @@ import 'package:music_notes_player_app_setup/const/notes_const.dart';
 
 class CustomTextField extends StatelessWidget {
   final String? hintText;
-  final Function(String)? onChanged;
+  final Function(String?)? onSaved;
   final bool? obscureText;
   final TextInputType? keyboardType;
   final double? height;
@@ -12,7 +12,7 @@ class CustomTextField extends StatelessWidget {
   const CustomTextField(
       {Key? key,
       this.hintText,
-      this.onChanged,
+      this.onSaved,
       this.obscureText = false,
       this.keyboardType = TextInputType.text,
       this.height,
@@ -21,18 +21,25 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+        validator: (value) {
+          if (value?.isEmpty ?? true) {
+            return 'this feild is required';
+          } else {
+            return null;
+          }
+        },
         cursorColor: kPrimaryColor,
         keyboardType: keyboardType,
         obscureText: obscureText!,
-        onChanged: onChanged,
+        onSaved: onSaved,
         maxLines: maxLines,
         decoration: InputDecoration(
-          hintText: hintText,
-          hintStyle: TextStyle(color: kPrimaryColor, height: height),
-          enabledBorder: outLineInputBorderMethod(),
-          focusedBorder: outLineInputBorderMethod(color: kPrimaryColor),
-        ));
+            hintText: hintText,
+            hintStyle: TextStyle(color: kPrimaryColor, height: height),
+            enabledBorder: outLineInputBorderMethod(),
+            focusedBorder: outLineInputBorderMethod(color: kPrimaryColor),
+            border: outLineInputBorderMethod()));
   }
 
   OutlineInputBorder outLineInputBorderMethod({Color? color}) {

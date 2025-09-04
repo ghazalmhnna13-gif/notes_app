@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:music_notes_player_app_setup/const/notes_const.dart';
-
 import 'package:music_notes_player_app_setup/views/notes_view.dart';
 
 void main() async {
