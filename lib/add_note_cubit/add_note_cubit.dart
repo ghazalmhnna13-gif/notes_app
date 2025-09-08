@@ -1,5 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:flutter/rendering.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:meta/meta.dart';
 import 'package:music_notes_player_app_setup/const/notes_const.dart';
@@ -20,3 +19,4 @@ class AddNoteCubit extends Cubit<AddNoteState> {
     }
   }
 }
+

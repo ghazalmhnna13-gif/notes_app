@@ -13,3 +13,4 @@ class AddNoteFailure extends AddNoteState {
   final String errorMessage;
    AddNoteFailure(this.errorMessage);
 }
+
