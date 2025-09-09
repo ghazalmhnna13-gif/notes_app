@@ -5,8 +5,10 @@ import 'package:music_notes_player_app_setup/add_note_cubit/add_note_cubit.dart'
 import 'package:music_notes_player_app_setup/const/notes_const.dart';
 import 'package:music_notes_player_app_setup/models/note_model.dart';
 import 'package:music_notes_player_app_setup/views/notes_view.dart';
+import 'package:music_notes_player_app_setup/views/simple_bloc_observer.dart';
 
 void main() async {
+  Bloc.observer = SimpleBlocObserver();
   await Hive.initFlutter();
   await Hive.openBox(kNotesBox);
   Hive.registerAdapter(NoteModelAdapter());
