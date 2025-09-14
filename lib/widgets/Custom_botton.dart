@@ -2,15 +2,17 @@ import 'package:flutter/material.dart';
 
 class CustomBotton extends StatelessWidget {
   final String? text;
- final Function()? onTap;
- final Color? buttonColor;
- final Color? textColor;
- const CustomBotton(
+  final Function()? onTap;
+  final Color? buttonColor;
+  final Color? textColor;
+  final bool inAsyncCall;
+  const CustomBotton(
       {Key? key,
       this.text = '',
       this.onTap,
       this.buttonColor = Colors.black,
-      this.textColor = Colors.white})
+      this.textColor = Colors.white,
+      this.inAsyncCall = false})
       : super(key: key);
 
   @override
@@ -22,10 +24,10 @@ class CustomBotton extends StatelessWidget {
             color: buttonColor, borderRadius: BorderRadius.circular(10)),
         height: 45,
         child: Center(
-          child: Text(
+          child:inAsyncCall ==false ? Text(
             text!,
             style: TextStyle(color: textColor, fontWeight: FontWeight.bold),
-          ),
+          ):const CircularProgressIndicator()
         ),
       ),
     );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:music_notes_player_app_setup/add_note_cubit/add_note_cubit.dart';
 import 'package:music_notes_player_app_setup/const/notes_const.dart';
 import 'package:music_notes_player_app_setup/models/note_model.dart';
@@ -48,24 +49,30 @@ class _AddNoteFormState extends State<AddNoteForm> {
               const SizedBox(
                 height: 60,
               ),
-              CustomBotton(
-                  text: 'Add',
-                  buttonColor: kPrimaryColor,
-                  textColor: Colors.black,
-                  onTap: () {
-                    if (formKey.currentState!.validate()) {
-                      formKey.currentState!.save();
-                      NoteModel noteModel = NoteModel(
-                          color: Colors.amber.value,
-                          date: DateTime.now().toString(),
-                          subTitle: subTitle!,
-                          title: title!);
-                      BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
-                    } else {
-                      autovalidateMode = AutovalidateMode.always;
-                      setState(() {});
-                    }
-                  }),
+              BlocBuilder <AddNoteCubit, AddNoteState>(
+                  
+                  builder: (context, state) {
+                return CustomBotton(
+                    inAsyncCall: state is AddNoteLoading ? true:false,
+                    text: 'Add',
+                    buttonColor: kPrimaryColor,
+                    textColor: Colors.black,
+                    onTap: () {
+                      if (formKey.currentState!.validate()) {
+                        formKey.currentState!.save();
+                        NoteModel noteModel = NoteModel(
+                            color: Colors.amber.value,
+                            date: DateTime.now().toString(),
+                            subTitle: subTitle!,
+                            title: title!);
+                        BlocProvider.of<AddNoteCubit>(context)
+                            .addNote(noteModel);
+                      } else {
+                        autovalidateMode = AutovalidateMode.always;
+                        setState(() {});
+                      }
+                    });
+              }),
               const SizedBox(
                 height: 10,
               ),
