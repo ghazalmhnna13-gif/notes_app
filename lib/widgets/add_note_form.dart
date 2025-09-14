@@ -1,6 +1,8 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:music_notes_player_app_setup/add_note_cubit/add_note_cubit.dart';
 import 'package:music_notes_player_app_setup/const/notes_const.dart';
+import 'package:music_notes_player_app_setup/models/note_model.dart';
 import 'package:music_notes_player_app_setup/widgets/custom_botton.dart';
 import 'package:music_notes_player_app_setup/widgets/custom_text_field.dart';
 
@@ -18,7 +20,6 @@ class _AddNoteFormState extends State<AddNoteForm> {
 
   @override
   Widget build(BuildContext context) {
-    
     return Form(
       key: formKey,
       autovalidateMode: autovalidateMode,
@@ -54,6 +55,12 @@ class _AddNoteFormState extends State<AddNoteForm> {
                   onTap: () {
                     if (formKey.currentState!.validate()) {
                       formKey.currentState!.save();
+                      NoteModel noteModel = NoteModel(
+                          color: Colors.amber.value,
+                          date: DateTime.now().toString(),
+                          subTitle: subTitle!,
+                          title: title!);
+                      BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
                     } else {
                       autovalidateMode = AutovalidateMode.always;
                       setState(() {});
