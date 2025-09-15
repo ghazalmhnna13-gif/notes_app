@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'package:music_notes_player_app_setup/add_note_cubit/add_note_cubit.dart';
 import 'package:music_notes_player_app_setup/const/notes_const.dart';
 import 'package:music_notes_player_app_setup/models/note_model.dart';
 import 'package:music_notes_player_app_setup/views/notes_view.dart';

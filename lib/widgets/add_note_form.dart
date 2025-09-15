@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
-import 'package:music_notes_player_app_setup/add_note_cubit/add_note_cubit.dart';
 import 'package:music_notes_player_app_setup/const/notes_const.dart';
+import 'package:music_notes_player_app_setup/cubit/add_note_cubit/add_note_cubit.dart';
 import 'package:music_notes_player_app_setup/models/note_model.dart';
 import 'package:music_notes_player_app_setup/widgets/custom_botton.dart';
 import 'package:music_notes_player_app_setup/widgets/custom_text_field.dart';
@@ -27,7 +27,10 @@ class _AddNoteFormState extends State<AddNoteForm> {
       child: Container(
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(8)),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
+          padding: EdgeInsets.only(
+              left: 16,
+              right: 16,
+              bottom: MediaQuery.of(context).viewInsets.bottom),
           child: Column(
             children: [
               Padding(
@@ -49,11 +52,10 @@ class _AddNoteFormState extends State<AddNoteForm> {
               const SizedBox(
                 height: 60,
               ),
-              BlocBuilder <AddNoteCubit, AddNoteState>(
-                  
+              BlocBuilder<AddNoteCubit, AddNoteState>(
                   builder: (context, state) {
                 return CustomBotton(
-                    inAsyncCall: state is AddNoteLoading ? true:false,
+                    inAsyncCall: state is AddNoteLoading ? true : false,
                     text: 'Add',
                     buttonColor: kPrimaryColor,
                     textColor: Colors.black,
