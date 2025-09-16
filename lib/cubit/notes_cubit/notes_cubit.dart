@@ -6,13 +6,11 @@ import 'package:music_notes_player_app_setup/models/note_model.dart';
 
 class NotesCubit extends Cubit<NotesState> {
   NotesCubit() : super(NotesInitial());
+  List<NoteModel>? notesList;
   void fetchAllNotes() {
-    try {
-      var notesBox = Hive.box<NoteModel>(kNotesBox);
-    List <NoteModel> notesList = notesBox.values.toList();
-      emit(NotesSuccess(notesList));
-    } catch (e) {
-      emit(NotesFailure(e.toString()));
-    }
+    var notesBox = Hive.box<NoteModel>(kNotesBox);
+    notesList = notesBox.values.toList();
+          print(notesList!.length);
+
   }
 }
