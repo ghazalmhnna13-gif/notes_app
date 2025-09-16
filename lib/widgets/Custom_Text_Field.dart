@@ -8,6 +8,7 @@ class CustomTextField extends StatelessWidget {
   final TextInputType? keyboardType;
   final double? height;
   final int? maxLines;
+  final void Function(String)? onChanged;
 
   const CustomTextField(
       {Key? key,
@@ -16,7 +17,8 @@ class CustomTextField extends StatelessWidget {
       this.obscureText = false,
       this.keyboardType = TextInputType.text,
       this.height,
-      this.maxLines = 1})
+      this.maxLines = 1,
+      this.onChanged})
       : super(key: key);
 
   @override
@@ -33,6 +35,7 @@ class CustomTextField extends StatelessWidget {
         keyboardType: keyboardType,
         obscureText: obscureText!,
         onSaved: onSaved,
+        onChanged: onChanged,
         maxLines: maxLines,
         decoration: InputDecoration(
             hintText: hintText,

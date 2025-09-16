@@ -4,7 +4,8 @@ import 'package:music_notes_player_app_setup/widgets/custom_search_icon.dart';
 class CustomAppBar extends StatelessWidget {
   final String text;
   final IconData icon;
-  const CustomAppBar({super.key, required this.text,required this.icon});
+  final void Function()? onTap;
+  const CustomAppBar({super.key, required this.text,required this.icon,this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,7 @@ class CustomAppBar extends StatelessWidget {
             text,
             style: const TextStyle(fontSize: 25),
           ),
-          customSearchIcon(icon: icon,)
+          customSearchIcon(icon: icon,onTap: onTap)
         ],
       ),
     );
