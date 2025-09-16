@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:music_notes_player_app_setup/models/note_model.dart';
 import 'package:music_notes_player_app_setup/views/edit_note_view.dart';
 
 class NoteItem extends StatelessWidget {
-  const NoteItem({super.key});
-
+  const NoteItem({super.key,required this.note});
+  final NoteModel note;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -23,14 +24,14 @@ class NoteItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               ListTile(
-                title: const Text(
-                  'Flutter tips',
-                  style: TextStyle(fontSize: 30, color: Colors.black),
+                title:  Text(
+                  note.title,
+                  style:const TextStyle(fontSize: 30, color: Colors.black),
                 ),
                 subtitle: Padding(
                   padding: const EdgeInsets.only(top: 16, right: 16),
                   child: Text(
-                    'Build your carrer with ghazal mhnna',
+                    note.subTitle,
                     style: TextStyle(
                         fontSize: 20,
                         color: Colors.black.withValues(alpha: .5)),
@@ -47,7 +48,7 @@ class NoteItem extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(right: 30, top: 16),
-                child: Text('May 21,2025',
+                child: Text(note.date,
                     style:
                         TextStyle(color: Colors.black.withValues(alpha: .5))),
               ),
