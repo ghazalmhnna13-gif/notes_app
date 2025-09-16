@@ -3,7 +3,7 @@ import 'package:music_notes_player_app_setup/models/note_model.dart';
 import 'package:music_notes_player_app_setup/views/edit_note_view.dart';
 
 class NoteItem extends StatelessWidget {
-  const NoteItem({super.key,required this.note});
+  const NoteItem({super.key, required this.note});
   final NoteModel note;
   @override
   Widget build(BuildContext context) {
@@ -24,9 +24,9 @@ class NoteItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               ListTile(
-                title:  Text(
+                title: Text(
                   note.title,
-                  style:const TextStyle(fontSize: 30, color: Colors.black),
+                  style: const TextStyle(fontSize: 30, color: Colors.black),
                 ),
                 subtitle: Padding(
                   padding: const EdgeInsets.only(top: 16, right: 16),
