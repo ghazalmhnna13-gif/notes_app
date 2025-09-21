@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:music_notes_player_app_setup/const/notes_const.dart';
 import 'package:music_notes_player_app_setup/cubit/add_note_cubit/add_note_cubit.dart';
 import 'package:music_notes_player_app_setup/models/note_model.dart';
+import 'package:music_notes_player_app_setup/widgets/colors_list_view.dart';
 import 'package:music_notes_player_app_setup/widgets/custom_botton.dart';
 import 'package:music_notes_player_app_setup/widgets/custom_text_field.dart';
 
@@ -49,6 +50,10 @@ class _AddNoteFormState extends State<AddNoteForm> {
                 },
               ),
               const SizedBox(
+                height: 10,
+              ),
+              const ColorsListView(),
+              const SizedBox(
                 height: 60,
               ),
               BlocBuilder<AddNoteCubit, AddNoteState>(
@@ -62,10 +67,11 @@ class _AddNoteFormState extends State<AddNoteForm> {
                       if (formKey.currentState!.validate()) {
                         formKey.currentState!.save();
                         DateTime dateTime = DateTime.now();
-                        String formattedDate= '${dateTime.day}-${dateTime.month}-${dateTime.year}';
+                        String formattedDate =
+                            '${dateTime.day}-${dateTime.month}-${dateTime.year}';
                         NoteModel noteModel = NoteModel(
                             color: Colors.amber.value,
-                            date:formattedDate ,
+                            date: formattedDate,
                             subTitle: subTitle!,
                             title: title!);
                         BlocProvider.of<AddNoteCubit>(context)
