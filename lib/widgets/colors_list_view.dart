@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:music_notes_player_app_setup/const/notes_const.dart';
+import 'package:music_notes_player_app_setup/cubit/add_note_cubit/add_note_cubit.dart';
 import 'package:music_notes_player_app_setup/widgets/custom_color_item.dart';
 
 class ColorsListView extends StatefulWidget {
@@ -11,29 +14,24 @@ class ColorsListView extends StatefulWidget {
 
 class _ColorsListViewState extends State<ColorsListView> {
   int currentIndex = 0;
-  List<Color> colors =const [
-    Colors.blue,
-    Colors.green,
-    Colors.amber,
-    Colors.red,
-    Colors.orange,
-  ];
+  
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 38 * 2,
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
-          itemCount: colors.length,
+          itemCount: kColors.length,
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap: () {
                 currentIndex = index;
+                BlocProvider.of<AddNoteCubit>(context).color =kColors[index];
                 setState(() {});
               },
               child: ColorItem(
                 isActive: currentIndex == index,
-                color: colors[index],
+                color: kColors[index],
               ),
             );
           }),
